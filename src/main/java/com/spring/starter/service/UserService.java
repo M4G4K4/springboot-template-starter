@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    private UserMapper mapper;
+    protected UserMapper mapper;
 
     public UserRead getUser(){
 
