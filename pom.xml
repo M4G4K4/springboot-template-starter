@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.7.3</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<groupId>com.spring</groupId>
@@ -17,7 +17,7 @@
 	<description>Spring boot template starter</description>
 
 	<properties>
-		<java.version>17</java.version>
+		<java.version>16</java.version>
 		<testcontainers.version>1.17.3</testcontainers.version>
 	</properties>
 
@@ -49,6 +49,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
+			<version>42.3.7</version>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -87,13 +88,15 @@
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>testcontainers</artifactId>
-			<version>1.17.3</version>
+			<version>1.17.4</version>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.testcontainers</groupId>
 			<artifactId>junit-jupiter</artifactId>
 			<scope>test</scope>
+
 		</dependency>
 		<dependency>
 			<groupId>org.testcontainers</groupId>
@@ -107,6 +110,7 @@
 			<version>5.1.1</version>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest-all</artifactId>

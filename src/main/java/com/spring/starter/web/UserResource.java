@@ -1,5 +1,6 @@
 package com.spring.starter.web;
 
+import com.spring.starter.model.dto.UserRead;
 import com.spring.starter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,12 +18,12 @@ public class UserResource {
     private UserService service;
 
     @GetMapping("/hello")
-    public ResponseEntity<String> getHello() {
-        return new ResponseEntity<>("hello", HttpStatus.OK);
+    public ResponseEntity<UserRead> getUser() {
+        return new ResponseEntity<>(service.getUser(), HttpStatus.OK);
     }
 
     @PostMapping("/hello")
-    public ResponseEntity<String> postHello() {
-        return new ResponseEntity<>(service.giveHello(), HttpStatus.OK);
+    public ResponseEntity<UserRead> createUser() {
+        return new ResponseEntity<>(service.createUser(), HttpStatus.OK);
     }
 }
