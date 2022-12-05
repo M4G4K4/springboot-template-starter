@@ -1,29 +1,29 @@
 package com.spring.starter.web;
 
+import com.spring.starter.model.dto.UserCreate;
 import com.spring.starter.model.dto.UserRead;
 import com.spring.starter.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/user")
 public class UserResource {
 
     @Autowired
     private UserService service;
 
-    @GetMapping("/hello")
-    public ResponseEntity<UserRead> getUser() {
-        return new ResponseEntity<>(service.getUser(), HttpStatus.OK);
+    @GetMapping("/{id}")
+    public ResponseEntity<UserRead> getUser(@PathVariable("id") final Long id) {
+        return new ResponseEntity<>(service.getUser(id), HttpStatus.OK);
     }
 
-    @PostMapping("/hello")
-    public ResponseEntity<UserRead> createUser() {
-        return new ResponseEntity<>(service.createUser(), HttpStatus.OK);
+    @PostMapping
+    public ResponseEntity<UserRead> createUser(@RequestBody @Valid final UserCreate userCreate) {
+        return new ResponseEntity<>(service.createUser(userCreate), HttpStatus.OK);
     }
 }

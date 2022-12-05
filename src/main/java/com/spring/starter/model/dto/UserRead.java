@@ -8,5 +8,9 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserRead {
+
+    private Long id;
     private String name;
+
+    private Integer age;
 }
