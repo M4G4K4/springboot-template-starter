@@ -8,11 +8,13 @@ import com.spring.starter.model.mapper.UserMapper;
 import com.spring.starter.model.repository.UserRepository;
 import com.spring.starter.utilities.exceptions.ErrorCode;
 import com.spring.starter.utilities.exceptions.ServiceException;
+import jakarta.transaction.Transactional;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 
+@Slf4j
 @Service
 public class UserService {
 
@@ -23,6 +25,7 @@ public class UserService {
     protected UserRepository repository;
 
     public UserRead getUser(final Long id) {
+        log.debug("Getting user with Id: {}", id);
 
         final User user = repository.findById(id).orElseThrow(() -> new ServiceException(ErrorCode.USER_NOT_FOUND));
 
@@ -31,6 +34,7 @@ public class UserService {
 
     @Transactional
     public UserRead createUser(final UserCreate userCreate) {
+        log.info("Creating new user");
 
         final User user = User.builder()
                 .name(userCreate.getName())
