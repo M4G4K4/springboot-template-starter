@@ -20,7 +20,7 @@
 		<java.version>17</java.version>
 		<testcontainers.version>1.17.5</testcontainers.version>
 		<org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
-		<org.projectlombok.version>1.18.24</org.projectlombok.version>
+		<org.projectlombok.version>1.18.26</org.projectlombok.version>
 	</properties>
 
 	<dependencies>
